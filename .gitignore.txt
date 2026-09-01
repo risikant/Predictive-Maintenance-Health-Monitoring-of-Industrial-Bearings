@@ -1,0 +1,4 @@
+2nd_test/
+*.zip
+__pycache__/
+.ipynb_checkpoints/
