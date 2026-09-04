@@ -4,7 +4,7 @@ An end-to-end machine learning and vibration signal processing pipeline to detec
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 Industrial rotating machinery often undergoes degradation that begins as microscopic subsurface spalls before leading to catastrophic mechanical failure. This project processes raw continuous accelerometer signals to:
 1. Extract time-domain and frequency-domain (FFT) statistical health indicators.
 2. Track the run-to-failure degradation trajectory of a bearing operating at 2000 RPM.
@@ -13,7 +13,7 @@ Industrial rotating machinery often undergoes degradation that begins as microsc
 
 ---
 
-## 📊 Dataset: NASA IMS Bearing Run-to-Failure
+##  Dataset: NASA IMS Bearing Run-to-Failure
 * **Source:** NASA Intelligent Maintenance Systems (IMS) Center.
 * **Test Setup:** 4 Rexnord ZA-2115 double-row bearings installed on a shared shaft loaded at 6000 lbs radial load, spinning at 2000 RPM.
 * **Sampling Rate:** 20.48 kHz (20,480 data points per 1-second snapshot, recorded every 10 minutes).
@@ -21,7 +21,7 @@ Industrial rotating machinery often undergoes degradation that begins as microsc
 
 ---
 
-## ⚙️ Feature Engineering & Signal Processing
+##  Feature Engineering & Signal Processing
 Vibration time-series were converted into statistical kinematics and spectral features:
 * **Root Mean Square (RMS):** Measures overall vibration energy and catastrophic wear progression.
 * **Kurtosis:** Detects impulsive impact shocks when rolling elements strike outer-race spalls.
@@ -32,7 +32,7 @@ Vibration time-series were converted into statistical kinematics and spectral fe
 
 ---
 
-## 📈 Degradation History & Health Stages
+##  Degradation History & Health Stages
 The bearing's lifecycle is divided into three distinct operational regimes:
 * **Normal Operation (Cycles 0 – 529):** Low vibration baseline (RMS < 0.08 g, Kurtosis ≈ 0).
 * **Early Degradation (Cycles 530 – 699):** Micro-defect initiation; Kurtosis spikes sharply while RMS remains stable.
@@ -42,7 +42,7 @@ The bearing's lifecycle is divided into three distinct operational regimes:
 
 ---
 
-## 🤖 Machine Learning Models & Results
+##  Machine Learning Models & Results
 
 ### 1. Fault Stage Classification (Random Forest Classifier)
 * **Accuracy:** 99%
@@ -51,7 +51,7 @@ The bearing's lifecycle is divided into three distinct operational regimes:
   * `Early_Degradation`: Precision = 0.98, Recall = 0.96, F1-Score = 0.97
   * `Severe_Fault`: Precision = 0.97, Recall = 0.98, F1-Score = 0.98
 
-### 2. Remaining Useful Life (RUL) Regression (Random Forest Regressor)
+### 2.Remaining Useful Life (RUL) Regression (Random Forest Regressor)
 * **R² Score:** 0.8113
 * **RMSE:** 118.26 cycles (~19.7 operational hours)
 
@@ -59,9 +59,17 @@ The bearing's lifecycle is divided into three distinct operational regimes:
 
 ---
 
-## 🛠️ Tech Stack & Libraries
+## Tech Stack & Libraries
 * **Language:** Python 3.10+
 * **Data Manipulation:** `pandas`, `numpy`
 * **Signal Processing:** `scipy.stats`, `scipy.fft`
 * **Machine Learning:** `scikit-learn`
 * **Visualization:** `matplotlib`, `seaborn`
+
+
+## Live Dashboard Usage
+
+To launch the interactive dashboard locally:
+
+```bash
+python -m streamlit run app.py
